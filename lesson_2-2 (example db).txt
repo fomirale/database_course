@@ -1,0 +1,64 @@
+
+/*
+Создайте базу данных example, разместите в ней таблицу users, 
+состоящую из двух столбцов, числового id и строкового name.
+*/
+
+mysql> CREATE DATABASE example;
+Query OK, 1 row affected (0.04 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| example            |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+5 rows in set (0.00 sec)
+
+mysql> USE example;
+Database changed
+
+mysql> CREATE TABLE users (
+    ->   id SERIAL PRIMARY KEY,
+    ->   name VARCHAR(200) COMMENT 'Имя пользователя'
+    -> ) COMMENT = 'Пользователи';
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> SHOW tables;
++-------------------+
+| Tables_in_example |
++-------------------+
+| users             |
++-------------------+
+1 row in set (0.00 sec)
+
+mysql> INSERT INTO users VALUES
+    ->   (DEFAULT, 'Сидоров'),
+    ->   (DEFAULT, 'Петров'),
+    ->   (DEFAULT, 'Васечкин');
+Query OK, 3 rows affected (0.02 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> DESCRIBE users;
++-------+-----------------+------+-----+---------+----------------+
+| Field | Type            | Null | Key | Default | Extra          |
++-------+-----------------+------+-----+---------+----------------+
+| id    | bigint unsigned | NO   | PRI | NULL    | auto_increment |
+| name  | varchar(200)    | YES  |     | NULL    |                |
++-------+-----------------+------+-----+---------+----------------+
+2 rows in set (0.01 sec)
+
+mysql> SELECT * FROM users;
++----+------------------+
+| id | name             |
++----+------------------+
+|  1 | Сидоров          |
+|  2 | Петров           |
+|  3 | Васечкин         |
++----+------------------+
+3 rows in set (0.00 sec)
+
