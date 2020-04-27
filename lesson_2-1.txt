@@ -1,0 +1,24 @@
+/*
+Установите СУБД MySQL. Создайте в домашней директории файл .my.cnf, 
+задав в нем логин и пароль, который указывался при установке.
+*/
+
+Air-kultakatti:~ irinafomenko$ ls -la ~ | grep .my.cnf 
+-rw-------@  1 irinafomenko  staff     31 Apr 25 22:45 .my.cnf
+Air-kultakatti:~ irinafomenko$ cat .my.cnf
+[mysql]
+user=root
+password=****Air-kultakatti:~ irinafomenko$ mysql
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 50
+Server version: 8.0.19 Homebrew
+
+Copyright (c) 2000, 2020, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> 
